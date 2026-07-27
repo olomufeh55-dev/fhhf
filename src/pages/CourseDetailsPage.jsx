@@ -98,7 +98,7 @@ export default function CourseDetailsPage() {
           .eq('course_id', courseId)
           .eq('user_id', user.id)
           .single();
-          
+
         if (enrollData) {
           setEnrollment(enrollData);
         }
@@ -136,6 +136,7 @@ export default function CourseDetailsPage() {
       if (error) throw error;
 
       if (course.is_free) {
+        dispatch(hideAppLoader());
         dispatch(addAlert({ variant: 'success', message: 'Successfully enrolled! Redirecting to course player...' }));
         navigate(`/courses/player/${course.id}`);
       } else {

@@ -93,6 +93,13 @@ function App() {
                 </ProtectedRoute>
               } />
               
+              {/* Legacy / Alternate Learning Route */}
+              <Route path="/courses/player/:courseId" element={
+                <ProtectedRoute>
+                  <CoursePlayerPage />
+                </ProtectedRoute>
+              } />
+              
               {/* Fallback 404 Route */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
